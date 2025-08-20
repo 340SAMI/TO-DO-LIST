@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ultimate Animated Task Dashboard</title>
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- GSAP for animations -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
+  <!-- Canvas Confetti -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>
+<body class="light">
+
+  <div class="sidebar">
+    <h2>Task Dashboard</h2>
+    <button id="addTaskBtn">+ Add Task</button>
+    <button id="toggleThemeBtn">🌙 Dark Mode</button>
+    <button id="exportBtn">📤 Export JSON</button>
+    <input type="file" id="importFile" style="display:none;">
+    <button id="importBtn">📥 Import JSON</button>
+    <div class="streak-badge">
+      <span id="streakCount">🔥 0</span> Streak
+    </div>
+  </div>
+
+  <div class="main-content">
+    <header>
+      <input type="text" id="searchInput" placeholder="Search tasks...">
+    </header>
+    <section id="taskList"></section>
+  </div>
+
+  <!-- Task Modal -->
+  <div id="taskModal" class="modal">
+    <div class="modal-content">
+      <span id="closeModalBtn">&times;</span>
+      <h2 id="modalTitle">Add Task</h2>
+      <form id="taskForm">
+        <input type="text" id="taskTitle" placeholder="Task Title" required>
+        <input type="date" id="taskDueDate">
+        <input type="text" id="taskTags" placeholder="Tags (comma separated)">
+        <select id="taskPriority">
+          <option value="Low">Low Priority</option>
+          <option value="Medium">Medium Priority</option>
+          <option value="High">High Priority</option>
+        </select>
+        <select id="taskRepeat">
+          <option value="None">No Repeat</option>
+          <option value="Daily">Daily</option>
+          <option value="Weekly">Weekly</option>
+        </select>
+        <textarea id="taskDescription" placeholder="Task Description"></textarea>
+        <input type="text" id="taskEmoji" placeholder="Emoji/Icon (optional)">
+        <button type="submit">Save Task</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Confetti Canvas -->
+  <canvas id="confettiCanvas"></canvas>
+
+  <script src="script.js"></script>
+</body>
+</html>
